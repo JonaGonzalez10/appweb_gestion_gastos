@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Dashboard</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+<body>
+<!-- Encabezado del Dashboard -->
+<header class="col-md-12">
+    <div class="logo">
+        <h1 class="logo"><img src="img/logo2.jpeg"></h1>
+    </div>
+    <div class="titulo">
+        <h1>Tablero de gastos e ingresos</h1>
+    </div>
+    <div class="redes_sociales">
+        <a href="#"><img src="img/facebook.png" alt=""></a>
+        <a href="#"><img src="img/github.png" alt=""></a>
+        <a href="#"><img src="img/instagram.png" alt=""></a>
+    </div>
+</header>
+<!-- fin de encabezado -->
+
+<!-- Contenedor principal -->
+<section class="contenedorPrincipal">
+    <!-- Menu lateral -->
+    <section class="menu-dashboard">
+        <div class="col-md-4">
+        <div class="top-menu">
+            <div class="logo">
+                <span>Gastos e Ingresos</span>
+            </div>
+            <div class="toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+        </div>
+        <div class="input-search">
+            <i class='bx bx-search'></i>
+            <input type="text" class="input" placeholder="Buscar">
+        </div>
+        <div class="menu">
+            <div class="enlace">
+                <i class="bx bx-grid-alt"></i>
+                <span id="navbarObtenerGastos">Tabla de Gastos</span>
+            </div>
+            <div class="enlace">
+                <i class="bx bx-user"></i>
+                <span>Tabla de ingresos</span>
+            </div>
+            <div class="enlace">
+                <i class="bx bx-grid-alt"></i>
+                <span id="menuIngresarGastos">Ingresar Gastos</span>
+            </div>
+            <div class="enlace">
+                <i class="bx bx-message-square"></i>
+                <span>Ingresar Ganancias</span>
+            </div>
+            <div class="enlace">
+                <i class="bx bx-file-blank"></i>
+                <span>Archivos</span>
+            </div>
+            <div class="enlace">
+                <i class="bx bx-cart"></i>
+                <span>Pedidos</span>
+            </div>
+        </div>
+        </div>
+    </section>
+    <!-- fin del menu lateral -->
+
+    <!-- Contenido del dashboard -->
+    <section class="contenido-dashboard">
+        <div class="contenedorEstadisticas">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-chart-area me-1"></i>
+                </div>
+                <div class="card-body">
+                    <canvas id="myAreaChart" width="100%" height="40"></canvas>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-chart-bar me-1"></i>
+                </div>
+                <div class="card-body">
+                    <canvas id="myBarChart" width="100%" height="40"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="contenedorGastos">
+                <table id="gastosTable">
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Mes</th>
+                        <th>Categoría</th>
+                        <th>Subcategoría</th>
+                        <th>Descripción</th>
+                        <th>Monto</th>
+                    </tr>
+                </table>
+                <button id="anteriorPagina" class="btn btn-primary">Anterior Pagina</button>
+                <button id="siguientePagina"class="btn btn-primary">Siguiente Pagina</button>
+            </div>
+            <div class="contenedorGastosXCategoria">
+                <table id="gastosPorCategoriaTable">
+                    <tr>
+                        <th>Categoría</th>
+                        <th>Monto</th>
+                    </tr>
+                </table>
+                <button id="obtieneGastosPorCategoria">Obtener Gastos por Categoría</button>
+                <button id="obtieneGraficaGastosXCategoria">Grafica Gastos por Categoria</button>
+                <canvas id="graficaGastosXCategoria"></canvas>
+            </div>
+        </div>
+    </section>
+    <!-- fin del contenido del dashboard -->
+</section>
+<!-- fin del contenedor principal -->
+<footer>
+    <p>Este es el contenido del footer</p>
+</footer>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script src="./js/app.js" defer></script>
+<script src="./js/gastosXCategoria.js" defer></script>
+<script src="./js/crearGraficas.js" defer></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</body>
+</html>
