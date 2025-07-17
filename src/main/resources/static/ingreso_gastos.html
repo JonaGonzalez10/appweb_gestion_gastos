@@ -2,11 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ingresar Gastos</title>
+    <link rel="stylesheet" href="css/ingreso_gastos.css">
 </head>
 <body>
-<h1>Ingresar Gastos</h1>
-<h2>Hola ingresare un gasto</h2>
-
+<div class="form-container">
+    <h1>Ingresar Gastos</h1>
+    <form id="gastoForm">
+        <div class="form-group">
+            <label for="fecha">Fecha:</label>
+            <input type="date" id="fecha" name="fecha" required>
+        </div>
+        <div class="form-group">
+            <label for="mes">Mes:</label>
+            <input type="text" id="mes" name="mes" readonly>
+        </div>
+        <div class="form-group">
+            <label for="categoria">Categoría:</label>
+            <select id="categoria" name="categoria" required>
+                <option value="" disabled selected>Selecciona una categoría</option>
+                <option value="Transporte">Transporte</option>
+                <option value="Alimentación">Alimentación</option>
+                <option value="Entretenimiento">Entretenimiento</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="subcategoria">Subcategoría:</label>
+            <select id="subcategoria" name="subcategoria" required>
+                <option value="" disabled selected>Selecciona una subcategoría</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="descripcion">Descripción:</label>
+            <input type="text" id="descripcion" name="descripcion" placeholder="Descripción del gasto" required>
+        </div>
+        <div class="form-group">
+            <label for="monto">Monto:</label>
+            <input type="number" id="monto" name="monto" placeholder="Monto en MXN" required>
+        </div>
+        <button type="submit" class="btn">Agregar Gasto</button>
+    </form>
+</div>
+<script src="js/ingreso_gastos.js"></script>
 </body>
 </html>

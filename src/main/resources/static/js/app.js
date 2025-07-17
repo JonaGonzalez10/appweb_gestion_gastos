@@ -89,7 +89,7 @@ function cargarGastos() {
 }
 //fin del script para llenar la tabla de gastos
 
-
+//Eventos para cargar las páginas de ingreso de gastos y ganancias
 document.addEventListener("DOMContentLoaded", () => {
     // Selecciona el enlace del menú
     const menuIngresarGastos = document.getElementById("menuIngresarGastos");
@@ -114,4 +114,30 @@ document.addEventListener("DOMContentLoaded", () => {
             });
     });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Selecciona el enlace del menú
+    const menuIngresarGastos = document.getElementById("menuIngresarGanancias");
+    const contenidoDashboard = document.querySelector(".contenido-dashboard");
+
+    // Agrega un evento click al enlace
+    menuIngresarGastos.addEventListener("click", () => {
+        // Carga el contenido de ingreso_gastos.html
+        fetch("ingreso_ganancias.html")
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Error al cargar la página");
+                }
+                return response.text();
+            })
+            .then(html => {
+                // Reemplaza el contenido de la sección contenido-dashboard
+                contenidoDashboard.innerHTML = html;
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+    });
+});
+
 
