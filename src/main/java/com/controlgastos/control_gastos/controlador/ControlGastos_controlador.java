@@ -1,8 +1,8 @@
 package com.controlgastos.control_gastos.controlador;
 
-import com.quesitoCoding.control_gastos.entidades.ControlGastos_entidad;
-import com.quesitoCoding.control_gastos.entidades.ControlGastos_entidad_ObtenerGastosxcategoriaSP;
-import com.quesitoCoding.control_gastos.servicio.ControlGastos_Servicio;
+import com.controlgastos.control_gastos.entidades.ControlGastos_entidad;
+import com.controlgastos.control_gastos.servicio.ControlGastos_Servicio;
+import com.controlgastos.control_gastos.entidades.ControlGastos_entidad_ObtenerGastosxcategoriaSP;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

@@ -1,6 +1,6 @@
 package com.controlgastos.control_gastos.repositorio;
 
-import com.quesitoCoding.control_gastos.entidades.ControlGastos_entidad;
+import com.controlgastos.control_gastos.entidades.ControlGastos_entidad;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.stereotype.Repository;

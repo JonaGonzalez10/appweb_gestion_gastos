@@ -1,16 +1,23 @@
 package com.controlgastos.control_gastos.servicio;
 
-import com.quesitoCoding.control_gastos.modelo.UsuarioModelo;
-import com.quesitoCoding.control_gastos.repositorio.LoginRepositorio;
+import com.controlgastos.control_gastos.modelo.UsuarioModelo;
+import com.controlgastos.control_gastos.repositorio.LoginRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
 public class LoginServicio {
     @Autowired
     private LoginRepositorio loginRepositorio;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
-    public UsuarioModelo findByUsernameAndPassword(String username, String password) {
-        return loginRepositorio.findByUsernameAndPassword(username, password);
+    public UsuarioModelo authenticate(String username, String password) {
+        UsuarioModelo user = loginRepositorio.findByUsername(username);
+        if (user != null && passwordEncoder.matches(password, user.getPassword())) {
+            return user;
+        }
+        return null;
     }
 }

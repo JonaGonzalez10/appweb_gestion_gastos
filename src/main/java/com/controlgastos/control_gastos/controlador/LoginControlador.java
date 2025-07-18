@@ -1,7 +1,7 @@
 package com.controlgastos.control_gastos.controlador;
 
-import com.quesitoCoding.control_gastos.modelo.UsuarioModelo;
-import com.quesitoCoding.control_gastos.servicio.LoginServicio;
+import com.controlgastos.control_gastos.modelo.UsuarioModelo;
+import com.controlgastos.control_gastos.servicio.LoginServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,12 +21,12 @@ public class LoginControlador {
         if (error != null) {
             model.addAttribute("error", "Usuario o contraseña incorrectos");
         }
-        return "login";
+        return "forward:/login.html";
     }
 
     @PostMapping
     public String login(@RequestParam String username, @RequestParam String password) {
-        UsuarioModelo user = loginServicio.findByUsernameAndPassword(username, password);
+        UsuarioModelo user = loginServicio.authenticate(username, password);
         if (user != null) {
             return "redirect:/index";
         } else {
