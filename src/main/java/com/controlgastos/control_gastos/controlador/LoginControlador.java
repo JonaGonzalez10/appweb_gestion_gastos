@@ -19,8 +19,12 @@ public class LoginControlador {
     @GetMapping
     public String Muestralogin(@RequestParam(value = "error", required = false) String error, Model model) {
         if (error != null) {
+            // Si hay un error, se puede agregar un mensaje al modelo para mostrarlo en la vista
+            System.out.println("Error de autenticación: " + error);
             model.addAttribute("error", "Usuario o contraseña incorrectos");
         }
+        // Si no hay error, simplemente se muestra la vista de login
+        System.out.println("Mostrando vista de login");
         return "forward:/login.html";
     }
 
@@ -28,8 +32,10 @@ public class LoginControlador {
     public String login(@RequestParam String username, @RequestParam String password) {
         UsuarioModelo user = loginServicio.authenticate(username, password);
         if (user != null) {
+            System.out.println("Usuario autenticado: " + user.getUsername());
             return "redirect:/index";
         } else {
+            System.out.println("Error de autenticación para el usuario: " + username);
             /*model.addAttribute("error", "Usuario o contraseña incorrectos");
             return "login";*/
             return "redirect:/login?error=true"; // Redirect to avoid circular view path

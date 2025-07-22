@@ -16,6 +16,7 @@ public class LoginServicio {
     public UsuarioModelo authenticate(String username, String password) {
         UsuarioModelo user = loginRepositorio.findByUsername(username);
         if (user != null && passwordEncoder.matches(password, user.getPassword())) {
+            System.out.println("Usuario encontrado: " + user.getUsername());
             return user;
         }
         return null;
