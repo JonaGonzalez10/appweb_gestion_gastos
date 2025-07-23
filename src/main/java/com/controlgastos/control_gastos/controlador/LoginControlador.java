@@ -3,12 +3,17 @@ package com.controlgastos.control_gastos.controlador;
 import com.controlgastos.control_gastos.modelo.UsuarioModelo;
 import com.controlgastos.control_gastos.servicio.LoginServicio;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.ArrayList;
 
 @Controller
 @RequestMapping("/login")
@@ -32,6 +37,9 @@ public class LoginControlador {
     public String login(@RequestParam String username, @RequestParam String password) {
         UsuarioModelo user = loginServicio.authenticate(username, password);
         if (user != null) {
+            UsernamePasswordAuthenticationToken authentication =
+                    new UsernamePasswordAuthenticationToken(user, null, new ArrayList<>());
+            SecurityContextHolder.getContext().setAuthentication(authentication);
             System.out.println("Usuario autenticado: " + user.getUsername());
             return "redirect:/index";
         } else {

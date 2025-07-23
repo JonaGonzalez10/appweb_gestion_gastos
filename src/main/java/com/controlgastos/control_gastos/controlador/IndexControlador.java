@@ -5,9 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/index")
 public class IndexControlador {
-    @GetMapping
+    @GetMapping("/index")
     public String MuestraIndex() {
         return "index";
     }
